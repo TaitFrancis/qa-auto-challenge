@@ -25,7 +25,6 @@ describe('Register Feature', () => {
         const errorMessage = 'First Name must be between 1 and 32 characters!';
         
         let testData = new TestData();
-        testData.noFirstName();
         RegisterPage.open();
         RegisterPage.register(testData);      
         expect(RegisterPage.lblError).toHaveText(errorMessage);
@@ -44,7 +43,7 @@ describe('Register Feature', () => {
 
         expect(RegisterPage.lblError).not.toExist();
         expect(RegisterPage.alertError).not.toExist();
-        expect(RegisterPage.titleSuccess).toHaveText(successMessage);
+        expect(RegisterPage.titleSuccess).toHaveTextContaining(successMessage);
     });
 
 });
